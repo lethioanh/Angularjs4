@@ -1,3 +1,22 @@
-<p>
-  login works!
-</p>
+<div class="main">
+  <div class="login-form">
+    <h1>Member Login</h1>
+      <div class="head">
+        <img src="assets/images/user.png" alt=""/>
+      </div>
+    <form (ngSubmit)="f.form.valid && login()" #f="ngForm">
+      <div>
+        <input type="text" class="text" required [(ngModel)]="userCode" name="userCode" #code="ngModel" placeholder="Enter your code...">
+        <div *ngIf="f.submitted && !code.valid" class="help-block text-center">Your code is not be blank.</div>
+      </div>
+      <div>
+        <input type="password" required [(ngModel)]="userPassword" name="userPassword" #password="ngModel" placeholder="Enter your password...">
+				<div *ngIf="f.submitted && !code.valid" class="help-block text-center"> Your password is not blank.</div>
+      </div>
+      <div class="submit">
+        <input type="submit" value="LOGIN">
+      </div>
+      <p><a href="#">Forgot Password ?</a></p>
+    </form>
+  </div>
+</div>
